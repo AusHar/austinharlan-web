@@ -1,0 +1,17 @@
+Main Goals:
+1. About me, projects, portfolio, contact, etc
+2. Stock picker LLM project
+3. Preparedness LLM project
+
+Stylistics
+- Use modern CSS techniques (Flexbox, Grid)
+- Decide on a collor pallete and typography
+- Decide on a CSS component library
+- Eventually incorporate tailwind or something
+- Mobile first. Build it for mobile first.
+- use rem and em unites instead of pixels for scalability 
+- use Aria labels where possible and ensure good color contrast for readability
+
+Design Direction
+- Animate my name when launching the page
+- 
