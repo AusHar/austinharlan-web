@@ -20,7 +20,7 @@ jobs:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v3
       with:
-        role-to-assume: arn:aws:iam::<726086112472>:role/<GitHub_Actions>
+        role-to-assume: arn:aws:iam::726086112472:role/GitHub_Actions
         aws-region: us-east-1
 
     - name: Sync to S3
