@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+permissions:
+    id-token: write
+    contents: read #required to read the repo content
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
