@@ -1,27 +1,29 @@
-name: Deploy to S3
+name: AWS-GitHub-Sync
 
 on:
   push:
-    branches:
-      - main
+    branchs: ["main"]
 
 permissions:
-    id-token: write
-    contents: read #required to read the repo content
+  id-token: write
+  contents: read
 
 jobs:
-  deploy:
+  ListS3:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      - uses: actions/checkout@v3
+      
+      # install AWS cli
+      - uses: unfor19/install-aws-cli-action@v1
 
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v3
-      with:
-        role-to-assume: arn:aws:iam::726086112472:role/GitHub_Actions
-        aws-region: us-east-1
+      # assume role
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-east-1
+          role-to-assume: arn:aws:iam::726086112472:role/GitHub_Actions_Role
 
-    - name: Sync to S3
-      run: aws s3 sync . s3://amazon-cloudfront-secure-static-site--s3bucketroot-gs8mq3etvr3h/ --exclude ".git/*" --exclude ".DS_Store"
+      - name: List S3 Buckets
+        run: |
+          echo "==============>>>> All S3 Buckets"
+          aws s3 ls
