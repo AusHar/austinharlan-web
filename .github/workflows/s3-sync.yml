@@ -9,21 +9,19 @@ permissions:
   contents: read
 
 jobs:
-  ListS3:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      
-      # install AWS cli
-      - uses: unfor19/install-aws-cli-action@v1
+      # checkout the code repo
+      - name: Checkout Code
+        uses: actions/checkout@v3
 
       # assume role
-      - uses: aws-actions/configure-aws-credentials@v4
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::726086112472:role/GitHub_Actions_Role
 
-      - name: List S3 Buckets
-        run: |
-          echo "==============>>>> All S3 Buckets"
-          aws s3 ls
+      - name: Sync to S3
+        run: aws s3 sync . s3://amazon-cloudfront-secure-static-site--s3bucketroot-gs8mq3etvr3h/ --exclude ".git/*" --exclude ".DS_Store"
