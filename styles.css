@@ -29,6 +29,10 @@
     color: var(--white);
     text-align: center;
     padding: 2rem;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Makes the header sticky and moves with the scroll of the page*/
   }
   
   header h1 {
@@ -39,6 +43,8 @@
   
   .nav-links {
     list-style: none;
+    display: flex;
+    gap: 15px;
     padding: 0;
     margin-top: 1rem;
   }
