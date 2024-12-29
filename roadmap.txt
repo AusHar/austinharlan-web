@@ -14,4 +14,5 @@ Stylistics
 
 Design Direction
 - Animate my name when launching the page
+    - Stock/trading based animation. Perhaps a trend line either writing out my name or supporting my name.
 - 
