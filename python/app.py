@@ -5,12 +5,12 @@ import pandas as pd
 import vectorbt as vbt
 from dotenv import load_dotenv
 
+# This needs to be tested. New method for login/auth
 totp = pyotp.TOTP(os.environ['robin_mfa']).now()
 print("Current OTP:", totp)
 # Here I am setting store_session=False so no pickle file is used.
 login = r.login(os.environ['robin_username'],
                 os.environ['robin_password'], store_session=False, mfa_code=totp)
-
 
 # Load environment variables
 load_dotenv(dotenv_path="/Users/aharlan/Documents/Code/austinharlan-web/python/rhacc.env")
