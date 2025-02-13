@@ -6,10 +6,10 @@
   font-family: 'Lexend', sans-serif;
 }
 
-/* Dark Theme */
+/* Dark Theme with Custom Colors */
 body {
-  background-color: #111;
-  color: #fff;
+  background-color: #1E1E24; /* Raisin Black */
+  color: #FFF8F0; /* Floral White */
   display: flex;
 }
 
@@ -17,7 +17,7 @@ body {
 .sidebar {
   width: 250px;
   height: 100vh;
-  background: #000;
+  background: #C49E85; /* Penn red */
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ body {
 .sidebar .logo {
   font-size: 2rem;
   font-weight: bold;
-  color: #0f0; /* Neon green */
+  color: #FFF8F0; /* Floral White */
 }
 
 .sidebar nav ul {
@@ -43,13 +43,13 @@ body {
 
 .sidebar nav ul li a {
   text-decoration: none;
-  color: #fff;
+  color: #E6E8E6; /* Light Gray */
   font-size: 1.2rem;
   transition: color 0.3s;
 }
 
 .sidebar nav ul li a:hover {
-  color: #0f0; /* Neon hover effect */
+  color: #767B91; /* Soft Gray Hover */
 }
 
 /* Social Links */
@@ -59,13 +59,13 @@ body {
 }
 
 .social-links a {
-  color: #fff;
+  color: #CED0CE; /* Muted Gray-Green */
   font-size: 1.5rem;
   transition: color 0.3s;
 }
 
 .social-links a:hover {
-  color: #0f0;
+  color: #9FB8AD;
 }
 
 /* Main Content */
@@ -86,14 +86,14 @@ main {
 }
 
 .hero .highlight {
-  color: #0f0;
-  text-shadow: 2px 2px 10px rgba(0, 255, 0, 0.6);
+  color: #FFD6AF; /* Vanilla Coffee */
+  text-shadow: 2px 2px 8px #C49E85; /* Darker Vanilla Coffee */
 }
 
 .hero p {
   font-size: 1.2rem;
   margin-top: 10px;
-  color: #aaa;
+  color: #CED0CE; /* Muted Gray-Green */
 }
 
 /* CTA Button */
@@ -102,16 +102,17 @@ main {
   margin-top: 20px;
   padding: 12px 24px;
   background: transparent;
-  border: 2px solid #0f0;
-  color: #0f0;
+  border: 2px solid #b89f9f;
+  color: #c19696;
   font-size: 1.2rem;
   text-decoration: none;
   transition: all 0.3s;
 }
 
 .cta-button:hover {
-  background: #0f0;
-  color: #000;
+  background: #b89f9f;
+  border: 2px solid #1E1E24;
+  color: #3F403F;
 }
 
 /* Sections */
@@ -125,18 +126,25 @@ main {
 }
 
 .project-card {
-  background: #222;
+  background: #1E1E24; /* Raisin Black */
   padding: 20px;
   border-radius: 10px;
+  border: 2px solid #c19696;
   text-align: center;
   width: 45%;
+  color: #E6E8E6;
 }
 
 /* Footer */
 .footer {
-  text-align: center;
-  padding: 20px;
-  background: #000;
+  text-align: left;
+  padding: 10%;
+  background: #47584100; /* Dark Olive */
   margin-top: 50px;
-  color: #aaa;
+  color: #CED0CE;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  width: 2%;
 }
