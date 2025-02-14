@@ -6,30 +6,156 @@
   font-family: 'Lexend', sans-serif;
 }
 
-/* Dark Theme with Custom Colors */
+/* Dark Theme with White Text*/
 body {
   background-color: #1E1E24; /* Raisin Black */
   color: #FFF8F0; /* Floral White */
   display: flex;
+  height: 100%;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures full height */
+  overflow-x: hidden;
+}
+
+/* Main Content */
+main {
+  margin-left: 270px;
+  padding: 50px;
+  flex-grow: 1; /* Ensures main content takes up remaining space */
+  min-height: calc(100vh - 50px); /* Ensures it fills viewport minus header/footer */
+}
+
+/* Part of Main but fixes Footer - Keeps footer at bottom of page */
+main {
+  flex-grow: 1; /* forces the footer to bottom regardless of content */
 }
 
 /* Sidebar Navigation */
 .sidebar {
   width: 250px;
   height: 100vh;
-  background: #C49E85; /* Penn red */
+  background: #C49E85; /* Sidebar Background */
   position: fixed;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px;
+  justify-content: flex-start; /* Ensure everything stays aligned properly */
+  padding-top: 20px;
+  overflow-x: hidden; /* Only hide horizontal overflow */
 }
 
+/* Sidebar Logo */
 .sidebar .logo {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #FFF8F0; /* Text Color */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  min-height: 180px; /* Ensures space for animation */
+  width: 100%; /* Prevents echoes from shifting outside */
+}
+
+/* Ensure sidebar expands on hover */
+.sidebar:hover {
+  min-height: 260px; /* Expand sidebar when hovered */
+  transition: min-height 0.8s ease-in-out;
+  padding: 30px 15px;
+}
+
+/* Ensure logo and links both trigger sidebar expansion */
+.sidebar:hover .logo,
+.sidebar:hover nav {
+  transition: all 0.8s ease-in-out;
+}
+
+/* Expands downward on hover */
+.sidebar .logo:hover {
+  min-height: 260px; /* Expand space for the echoes */
+  transition: min-height 0.8s ease-in-out;
+}
+
+/* First "Austin Harlan" (Main Text) */
+.sidebar .logo .full-name {
   font-size: 2rem;
   font-weight: bold;
-  color: #FFF8F0; /* Floral White */
+  opacity: 0;
+  color: #FF0022; /* Red */
+  position: absolute;
+  top: 70px; /* Position relative to "AH" */
+  left: 50%;
+  transform: translateX(-50%) translateY(5px);
+  transition: opacity 0.6s ease-in-out, transform 0.8s ease-in-out;
+  z-index: 15;
+  white-space: nowrap; /* Ensures it doesn't break */
+  width: 100%;
+  text-align: center;
+}
+
+/* Echo Effects */
+.sidebar .logo .echo {
+  margin-top: 5%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Moves text back to center */
+  text-align: center;
+  width: max-content; /* Ensures the text itself doesn't stretch */
+  font-weight: bold;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+  z-index: 5;
+}
+
+/* Ensure hover keeps echoes centered */
+.sidebar .logo:hover .echo {
+  transform: translateX(-50%) translateY(15px);
+}
+
+/* First Echo */
+.sidebar .logo .echo-1 {
+  top: 120px; /* Adjusted to prevent stacking too closely */
+  font-size: 2.2rem;
+  color: rgba(255, 248, 240, 0.5);
+}
+
+/* Second Echo */
+.sidebar .logo .echo-2 {
+  top: 160px;
+  font-size: 2.6rem;
+  color: rgba(255, 248, 240, 0.3);
+}
+
+/* Third Echo */
+.sidebar .logo .echo-3 {
+  top: 200px;
+  font-size: 3rem;
+  color: rgba(255, 248, 240, 0.2);
+}
+
+/* Make echoes appear on hover */
+.sidebar .logo:hover .echo {
+  opacity: 1;
+  transform: translateX(-50%) translateY(15px);
+}
+
+/* Ensures sidebar content never overflows vertically */
+.sidebar .logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-height: 100%;
+}
+
+/* Move Navigation Below the Echoes */
+.sidebar nav {
+  margin-top: 20px; /* Push the nav completely below echoes */
+  transition: margin-top 0.8s ease-in-out;
 }
 
 .sidebar nav ul {
@@ -37,19 +163,43 @@ body {
   padding: 0;
 }
 
-.sidebar nav ul li {
-  margin: 20px 0;
+/* Prevents flickering when transitioning to links */
+.sidebar:hover nav ul {
+  pointer-events: auto; /* Ensures hover effect remains active */
 }
 
+.sidebar nav ul li {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Sidebar Links */
 .sidebar nav ul li a {
   text-decoration: none;
   color: #E6E8E6; /* Light Gray */
   font-size: 1.2rem;
-  transition: color 0.3s;
+  position: relative;
+  z-index: 50;
+  display: inline-block;
+  padding: 10px 15px; /* Ensure enough clickable area */
+  min-width: 120px; /* Prevent shrinking when hovered */
+  transition: color 0.3s, background-color 0.3s ease-in-out;
 }
 
+/* Keep hover effect stable */
+.sidebar:hover nav ul li a {
+  pointer-events: auto;
+}
+
+/* Hover State */
 .sidebar nav ul li a:hover {
-  color: #767B91; /* Soft Gray Hover */
+  color: #011627;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 15px 20px; /* Expand clickable area */
+  margin: -5px -5px; /* Prevent additional spacing between links */
+  border-radius: 5px; /* Slightly rounded corners for better feel */
+  text-decoration: none;
 }
 
 /* Social Links */
@@ -68,16 +218,10 @@ body {
   color: #9FB8AD;
 }
 
-/* Main Content */
-main {
-  margin-left: 270px;
-  padding: 50px;
-}
-
 /* Hero Section */
 .hero {
   text-align: left;
-  padding-top: 100px;
+  padding-top: 10px;
 }
 
 .hero h1 {
@@ -116,8 +260,27 @@ main {
 }
 
 /* Sections */
-.about-section, .portfolio-section, .contact-section {
-  padding: 50px 0;
+/* Add spacing between sections */
+.about-section, 
+.portfolio-section, 
+.contact-section {
+  padding-top: 10px; /* Adds extra spacing above sections */
+}
+
+/* Only apply spacing to section titles, not project cards */
+.about-section > h2, 
+.portfolio-section > h2, 
+.contact-section > h2 {
+  margin: 40px 0 20px; /* Adds spacing only to section headings */
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.portfolio-section h4 {
+  text-decoration-line: underline;
+  padding: 10px;
 }
 
 .portfolio-grid {
@@ -126,25 +289,41 @@ main {
 }
 
 .project-card {
-  background: #1E1E24; /* Raisin Black */
+  background: linear-gradient(135deg, #1e1e24c0 0%, #1E1E24 100%); /* Gradient overlay */
   padding: 20px;
   border-radius: 10px;
   border: 2px solid #c19696;
   text-align: center;
   width: 45%;
   color: #E6E8E6;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(193, 150, 150, 0.3);
+}
+
+/* Global link styles */
+a {
+  color: #C19696; /* Soft muted red */
+  text-decoration: none; /* Removes underline */
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #FFD6AF; /* Vanilla Coffee */
+  text-decoration: underline; /* Adds underline on hover */
 }
 
 /* Footer */
 .footer {
-  text-align: left;
-  padding: 10%;
-  background: #47584100; /* Dark Olive */
-  margin-top: 50px;
+  text-align: center;
+  padding: 10px;
+  background: #000000;
   color: #CED0CE;
-  position: relative;
+  width: 100%;
+  position: fixed;
   bottom: 0;
   left: 0;
-  height: 100vh;
-  width: 2%;
 }
