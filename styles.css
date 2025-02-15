@@ -32,7 +32,7 @@ main {
 
 /* Sidebar Navigation */
 .sidebar {
-  width: 250px;
+  width: 15%;
   height: 100vh;
   background: #C49E85; /* Sidebar Background */
   position: fixed;
@@ -118,22 +118,22 @@ main {
 
 /* First Echo */
 .sidebar .logo .echo-1 {
-  top: 120px; /* Adjusted to prevent stacking too closely */
-  font-size: 2.2rem;
+  top: 130px; /* Adjusted to prevent stacking too closely */
+  font-size: .9rem;
   color: rgba(255, 248, 240, 0.5);
 }
 
 /* Second Echo */
 .sidebar .logo .echo-2 {
   top: 160px;
-  font-size: 2.6rem;
+  font-size: 1.2rem;
   color: rgba(255, 248, 240, 0.3);
 }
 
 /* Third Echo */
 .sidebar .logo .echo-3 {
-  top: 200px;
-  font-size: 3rem;
+  top: 190px;
+  font-size: 1.9rem;
   color: rgba(255, 248, 240, 0.2);
 }
 
