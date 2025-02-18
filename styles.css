@@ -79,7 +79,7 @@ main {
   transition: min-height 0.8s ease-in-out;
 }
 
-/* First "Austin Harlan" (Main Text) */
+/* First Sidebar "Austin Harlan" (Main Text) */
 .sidebar .logo .full-name {
   font-size: 2rem;
   font-weight: bold;
@@ -185,6 +185,7 @@ main {
   padding: 10px 15px; /* Ensure enough clickable area */
   min-width: 120px; /* Prevent shrinking when hovered */
   transition: color 0.3s, background-color 0.3s ease-in-out;
+  text-align: center;
 }
 
 /* Keep hover effect stable */
@@ -197,7 +198,6 @@ main {
   color: #011627;
   background: rgba(255, 255, 255, 0.1);
   padding: 15px 20px; /* Expand clickable area */
-  margin: -5px -5px; /* Prevent additional spacing between links */
   border-radius: 5px; /* Slightly rounded corners for better feel */
   text-decoration: none;
 }
@@ -326,4 +326,138 @@ a:hover {
   position: fixed;
   bottom: 0;
   left: 0;
+}
+
+/* 🔹 Mobile Styling: Improves visibility and functionality for mobile */
+@media screen and (max-width: 768px) {
+
+  /* 🔹 Sidebar Adjustments */
+  .sidebar {
+    width: 100%; /* Full width */
+    height: 80px; /* Fixed height to prevent resizing */
+    min-height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    align-items: center;
+    display: flex;
+    flex-direction: row; /* Align items in a row */
+    justify-content: space-between; /* Spread elements evenly */
+    transition: none; /* Remove hover expansion effect */
+    overflow: hidden; /* Ensure no unexpected layout shifts */
+  }
+
+  /* 🔹 Prevent Sidebar from Expanding on Hover */
+  .sidebar:hover {
+    height: 80px; /* Keep fixed height */
+    padding: 10px 0;
+    transition: none;
+  }
+
+  /* 🔹 Navigation */
+  .sidebar nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar nav ul {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space out links */
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar nav ul li {
+    margin: 0 10px; /* Ensure no vertical space shifts */
+  }
+
+  .sidebar nav ul li a {
+    display: inline-block;
+    height: 100%; /* Ensures full height */
+    line-height: 60px; /* Fixes cut-off text issue */
+    padding: 12px 20px; /* Standard clickable area */
+    font-size: 1rem;
+    transition: color 0.3s, background-color 0.3s ease-in-out; /* Remove size-changing transitions */
+  }
+
+  /* 🔹 Ensure Hover Doesn't Move Elements */
+  .sidebar nav ul li a:hover {
+    color: #011627;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 20px; /* Keep hover padding identical to default */
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+  /* 🔹 Fix Logo Stability */
+  .sidebar .logo {
+    height: 50px; /* Fixed height */
+    min-height: 50px;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: none; /* Remove animation on mobile */
+    white-space: nowrap; /* Prevents unwanted text wrapping */
+  }
+
+  /* 🔹 Hide Echoes on Mobile */
+  .sidebar .logo .echo {
+    display: none;
+  }
+
+  .sidebar .logo:hover {
+    height: 50px; /* Prevent any expansion */
+    transition: none;
+  }
+
+  /* 🔹 Ensure logo text is stable */
+  .sidebar .logo .full-name {
+    opacity: 1;
+    position: static;
+    transform: none;
+    font-size: 1.5rem; /* Match logo size */
+  }
+
+  /* 🔹 Main Content Adjustments */
+  main {
+    margin-top: 80px; /* Push content below fixed sidebar */
+    margin-left: 0; /* Remove left margin */
+    padding: 20px; /* Reduce padding for better spacing */
+    text-align: center; /* Center everything */
+  }
+
+  .hero h1 {
+    font-size: 2rem; /* Reduce heading size for mobile */
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  /* 🔹 Portfolio Section */
+  .portfolio-grid {
+    flex-direction: column; /* Stack items */
+    align-items: center;
+  }
+
+  .project-card {
+    width: 90%;
+    max-width: 400px; /* Keep a readable width */
+  }
+
+  /* 🔹 Footer Adjustments */
+  .footer {
+    position: relative; /* Prevent overlap */
+    width: 100%;
+    padding: 15px;
+  }
 }

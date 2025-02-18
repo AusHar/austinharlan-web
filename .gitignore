@@ -1,6 +1,7 @@
 # Ignore environment files
 *.env
 rhacc.env
+*.vscode
 
 # Ignore virtual environments
 venv/
