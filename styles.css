@@ -339,20 +339,21 @@ a:hover {
     position: fixed;
     top: 0;
     left: 0;
-    padding: 10px 0;
+    padding: 0px 20px;
     align-items: center;
     display: flex;
+    align-items: center;
     flex-direction: row; /* Align items in a row */
     justify-content: space-between; /* Spread elements evenly */
-    transition: none; /* Remove hover expansion effect */
+    transition: min-height 0.4s ease-out, padding 0.4s ease-out; /* Remove hover expansion effect */
     overflow: hidden; /* Ensure no unexpected layout shifts */
   }
 
   /* 🔹 Prevent Sidebar from Expanding on Hover */
   .sidebar:hover {
-    height: 80px; /* Keep fixed height */
-    padding: 10px 0;
-    transition: none;
+    min-height: 120px;
+    padding: 10px 20px;
+    transition: min-height 0.4s ease-out, padding 0.4s ease-out;
   }
 
   /* 🔹 Navigation */
@@ -360,25 +361,32 @@ a:hover {
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-end; /* Align links to the right */
+    flex-grow: 1;
   }
 
   .sidebar nav ul {
     display: flex;
     align-items: center;
-    gap: 15px; /* Space out links */
+    gap: 25px; /* Space out links */
     padding: 0;
     margin: 0;
+    justify-content: center;
   }
 
   .sidebar nav ul li {
     margin: 0 10px; /* Ensure no vertical space shifts */
+    display: flex;
+    align-items: center;
   }
 
   .sidebar nav ul li a {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     height: 100%; /* Ensures full height */
-    line-height: 60px; /* Fixes cut-off text issue */
-    padding: 12px 20px; /* Standard clickable area */
+    line-height: normal; /* Fixes cut-off text issue */
+    padding: 10px 15px; /* Standard clickable area */
     font-size: 1rem;
     transition: color 0.3s, background-color 0.3s ease-in-out; /* Remove size-changing transitions */
   }
@@ -387,15 +395,14 @@ a:hover {
   .sidebar nav ul li a:hover {
     color: #011627;
     background: rgba(255, 255, 255, 0.1);
-    padding: 12px 20px; /* Keep hover padding identical to default */
+    padding: 10px 15px; /* Keep hover padding identical to default */
     border-radius: 5px;
     text-decoration: none;
   }
 
-  /* 🔹 Fix Logo Stability */
+  /* 🔹 Fix Logo Alignment */
   .sidebar .logo {
-    height: 50px; /* Fixed height */
-    min-height: 50px;
+    height: 100%; /* Prevent resizing */
     font-size: 1.5rem;
     display: flex;
     align-items: center;
