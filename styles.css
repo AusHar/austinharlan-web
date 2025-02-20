@@ -368,7 +368,7 @@ a:hover {
   .sidebar nav ul {
     display: flex;
     align-items: center;
-    gap: 25px; /* Space out links */
+    gap: 10px; /* Space out links */
     padding: 0;
     margin: 0;
     justify-content: center;
@@ -383,7 +383,7 @@ a:hover {
   .sidebar nav ul li a {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     height: 100%; /* Ensures full height */
     line-height: normal; /* Fixes cut-off text issue */
     padding: 10px 15px; /* Standard clickable area */
