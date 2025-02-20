@@ -368,7 +368,7 @@ a:hover {
   .sidebar nav ul {
     display: flex;
     align-items: center;
-    gap: 10px; /* Space out links */
+    gap: 5px; /* Space out links */
     padding: 0;
     margin: 0;
     justify-content: center;
