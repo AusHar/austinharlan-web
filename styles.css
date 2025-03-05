@@ -49,7 +49,7 @@ main {
 
 /* Sidebar Navigation */
 .sidebar {
-  width: 15%;
+  width: clamp(200px, 15%, 300px); /* Dynamically scales */
   height: 100vh;
   background: #C49E85; /* Sidebar Background */
   position: fixed;
