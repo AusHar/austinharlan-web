@@ -17,6 +17,23 @@ body {
   overflow-x: hidden;
 }
 
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 100%);
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+body.scrolled::before {
+  opacity: 1;
+}
+
 /* Main Content */
 main {
   margin-left: 270px;
@@ -241,6 +258,22 @@ main {
   color: #CED0CE; /* Muted Gray-Green */
 }
 
+/* Animated typing of Hero text -- Not sure how I want to incorporate this. 
+Commented out for now.
+
+.typing-text::after {
+  content: "|";
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+*/
+
+
 /* CTA Button */
 .cta-button {
   display: inline-block;
@@ -297,7 +330,7 @@ main {
   left: 50%;
   width: 80%;
   height: 100%;
-  background: #1E1E24; /* Very subtle divider */
+  background: transparent; /* Very subtle divider */
   z-index: -1;
   border-radius: 10px;
 }

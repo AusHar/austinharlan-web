@@ -13,6 +13,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
+  <script>
+    // Background glow effect on scroll
+    window.addEventListener("scroll", function() {
+      document.body.classList.toggle("scrolled", window.scrollY > 100);
+    });
+  </script>
   <!-- Sidebar Navi -->
   <aside class="sidebar">
     <div class="logo">
@@ -37,7 +43,7 @@
   <!-- Main Content -->
   <main>
     <section class="hero">
-      <h1>Hi, I'm <span class="highlight">Austin Harlan</span>. <br>I like to build things.</h1>
+      <h1 class="typing-text">Hi, I'm <span class="highlight">Austin Harlan</span>. <br>I like to build things.</h1>
       <p>Software Analyst / Cloud Developer</p>
       <a href="https://www.linkedin.com/in/austinharlan" class="cta-button">Contact me!</a>
     </section>
