@@ -257,6 +257,8 @@ Commented out for now. */
   content: "|";
   display: inline-block;
   animation: blink 0.7s infinite;
+  font-size: 20px;
+  padding-left: 9px;
 }
 
 @keyframes blink {
