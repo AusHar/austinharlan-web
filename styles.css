@@ -77,13 +77,6 @@ main {
   width: 100%; /* Prevents echoes from shifting outside */
 }
 
-/* Ensure sidebar expands on hover */
-.sidebar:hover {
-  min-height: 260px; /* Expand sidebar when hovered */
-  transition: min-height 0.8s ease-in-out;
-  padding: 30px 15px;
-}
-
 /* Ensure logo and links both trigger sidebar expansion */
 .sidebar:hover .logo,
 .sidebar:hover nav {
@@ -95,6 +88,7 @@ main {
   min-height: 260px; /* Expand space for the echoes */
   transition: min-height 0.8s ease-in-out;
 }
+
 
 /* First Sidebar "Austin Harlan" (Main Text) */
 .sidebar .logo .full-name {
@@ -214,9 +208,8 @@ main {
 .sidebar nav ul li a:hover {
   color: #011627;
   background: rgba(255, 255, 255, 0.1);
-  padding: 15px 20px; /* Expand clickable area */
+  padding: 10px 15px; /* Expand clickable area */
   border-radius: 5px; /* Slightly rounded corners for better feel */
-  text-decoration: none;
 }
 
 /* Social Links */
@@ -258,7 +251,7 @@ main {
 }
 
 /* Animated typing of Hero text -- Not sure how I want to incorporate this. 
-Commented out for now.
+Commented out for now. */
 
 .typing-text::after {
   content: "|";
@@ -270,7 +263,7 @@ Commented out for now.
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
-*/
+
 
 
 /* CTA Button */
@@ -313,7 +306,9 @@ Commented out for now.
 
 .portfolio-section h4 {
   text-decoration-line: underline;
-  padding: 10px;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  text-align: left;
 }
 
 /* both .portfolio-section and ::before are meant to act as a subtle divider provide some additional structure */
@@ -346,7 +341,7 @@ Commented out for now.
   padding: 20px;
   border-radius: 10px;
   border: 2px solid transparent #c19696;
-  text-align: center;
+  text-align: left;
   width: 45%;
   color: #E6E8E6;
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
@@ -361,7 +356,8 @@ Commented out for now.
   left: -2px;
   right: -2px;
   bottom: -2px;
-  background: linear-gradient(45deg, #337357, #607B7D, #3A7D44, #2a472d);
+  background-color:#1E1E24;
+  filter: hue-rotate(-60deg);
   z-index: -1;
   border-radius: 12px;
   filter: blur(15px);
