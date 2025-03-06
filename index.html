@@ -12,10 +12,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
 </head>
+
 <body>
   <script>
     // Background glow effect on scroll
-    window.addEventListener("scroll", function() {
+    window.addEventListener("scroll", function () {
       document.body.classList.toggle("scrolled", window.scrollY > 100);
     });
   </script>
@@ -40,18 +41,29 @@
     </div>
   </aside>
 
-  <!-- Main Content -->
-  <main>
+  <!-- Main Content / Hero -->
+  <main class="content-container">
     <section class="hero">
-      <h1>Hi, I'm <span class="highlight">Austin Harlan</span>. <br>I like to build things.</h1>
-      <p>Software Analyst / Cloud Developer</p>
-      <a href="https://www.linkedin.com/in/austinharlan" class="cta-button">Contact me!</a>
+      <div class="hero-content-wrapper">
+        <div class="hero-content">
+          <h1>Hi, I'm <span class="highlight">Austin Harlan</span>. <br>I like to build things.</h1>
+          <p>Software Analyst / Cloud Developer</p>
+          <a href="https://www.linkedin.com/in/austinharlan" class="cta-button">Contact me!</a>
+        </div>
+
+        <div class="profile-photo">
+          <img src="images/IMG_0586.png" alt="Austin Harlan Headshot">
+        </div>
+      </div>
     </section>
 
     <section id="about" class="about-section">
       <h2>About Me</h2>
       <p class="typing-text">
-        Hey, I’m Austin Harlan—a software engineer passionate about equities trading and building scalable systems in diverse environments. With 7+ years of IT and cloud expertise at Merck & Co., Mears Group, and now Meta in Austin, TX, I’m currently completing my B.S. in Software Engineering at WGU. <br><br><br>Life is good. What're we doing next?
+        Hey, I’m Austin Harlan—a software engineer passionate about equities trading and building scalable systems in
+        diverse environments. <br><br>With 7+ years of IT and cloud expertise at Merck & Co., Mears Group, and now Meta
+        in Austin, TX, I’m currently completing my B.S. in Software Engineering at WGU. Life is good.<br><br>What're we
+        doing next?
       </p>
     </section>
 
