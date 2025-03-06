@@ -255,24 +255,22 @@ main {
 .hero {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-  gap: 5px;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows stacking on smaller screens */
+  gap: 40px;
   padding: 50px 20px;
   max-width: 100%;
 }
-
+/* Ensure the text content and image each take up a fair amount of space */
 .hero-content {
-  max-width: 80%;
-  margin: 0 auto;
   flex: 1;
+  min-width: 300px; /* Ensures it doesn't shrink too much */
 }
 
 .hero-content-wrapper {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: 40px;
   flex-wrap: wrap;
 }
 
@@ -295,16 +293,18 @@ main {
   /* Muted Gray-Green */
 }
 
+/* Center the image and constrain its width */
 .profile-photo {
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  margin-top: 20px;
+  min-width: 300px; /* Prevents it from shrinking too much */
 }
 
 .profile-photo img {
-  max-width: 80%; /* Keeps it from being too large */
+  max-width: 100%;
+  width: clamp(250px, 30vw, 400px); /* Scales with screen size */
   height: auto;
   border-radius: 10px;
 }
@@ -359,8 +359,12 @@ Commented out for now. */
 .portfolio-section,
 .contact-section {
   padding: 50px 20px;
-  max-width: 80%;
+  max-width: 100%;
   margin: 0 auto;
+}
+
+.about-section-text{
+  max-width: 925px;
 }
 
 /* Only apply spacing to section titles, not project cards */
@@ -373,30 +377,22 @@ Commented out for now. */
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
+  max-width: 80%;
 }
 
 .contact-section {
   margin-bottom: 70px;
 }
 
-.portfolio-section h4 {
-  text-decoration-line: underline;
-  padding-bottom: 10px;
-  padding-top: 5px;
-  text-align: left;
-}
-
 /* both .portfolio-section and ::before are meant to act as a subtle divider provide some additional structure */
 .portfolio-section {
   position: relative;
-  padding: 50px 0;
 }
 
 .portfolio-section::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 50%;
   width: 80%;
   height: 100%;
   background: transparent;
@@ -410,6 +406,13 @@ Commented out for now. */
   flex-wrap: wrap;
   justify-content: left;
   gap: 20px;
+}
+
+.portfolio-section h4 {
+  text-decoration-line: underline;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  text-align: left;
 }
 
 .project-card {
