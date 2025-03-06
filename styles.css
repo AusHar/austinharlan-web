@@ -51,7 +51,7 @@ main {
 .sidebar {
   width: clamp(200px, 15%, 300px); /* Dynamically scales */
   height: 100vh;
-  background: #C49E85; /* Sidebar Background */
+  background: #B78A6F; /* Sidebar Background */
   position: fixed;
   display: flex;
   flex-direction: column;
