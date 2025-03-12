@@ -53,7 +53,7 @@ main {
   width: clamp(200px, 15%, 300px);
   /* Dynamically scales */
   height: 100vh;
-  background: #B78A6F;
+  background: #282C35;
   /* Sidebar Background */
   position: fixed;
   display: flex;
@@ -70,7 +70,7 @@ main {
 .sidebar .logo {
   font-size: 3rem;
   font-weight: bold;
-  color: #FFF8F0;
+  color: #E0E0E0;
   /* Text Color */
   text-align: center;
   display: flex;
@@ -85,97 +85,21 @@ main {
   /* Prevents echoes from shifting outside */
 }
 
-/* Ensure logo and links both trigger sidebar expansion */
-.sidebar:hover .logo,
-.sidebar:hover nav {
-  transition: all 0.8s ease-in-out;
-}
-
-/* Expands downward on hover */
-.sidebar .logo:hover {
-  min-height: 260px;
-  /* Expand space for the echoes */
-  transition: min-height 0.8s ease-in-out;
-}
-
-
 /* First Sidebar "Austin Harlan" (Main Text) */
 .sidebar .logo .full-name {
   font-size: 2rem;
   font-weight: bold;
-  opacity: 0;
+  opacity: 1;
   color: #FF0022;
   /* Red */
-  position: absolute;
-  top: 70px;
-  /* Position relative to "AH" */
-  left: 50%;
-  transform: translateX(-50%) translateY(5px);
-  transition: opacity 0.6s ease-in-out, transform 0.8s ease-in-out;
+  position: static;
+  transform: none;
+  transition: none;
   z-index: 15;
   white-space: nowrap;
   /* Ensures it doesn't break */
   width: 100%;
   text-align: center;
-}
-
-/* Echo Effects */
-.sidebar .logo .echo {
-  margin-top: 5%;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  /* Moves text back to center */
-  text-align: center;
-  width: max-content;
-  /* Ensures the text itself doesn't stretch */
-  font-weight: bold;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 1s ease-in-out, transform 1s ease-in-out;
-  z-index: 5;
-}
-
-/* Ensure hover keeps echoes centered */
-.sidebar .logo:hover .echo {
-  transform: translateX(-50%) translateY(15px);
-}
-
-/* First Echo */
-.sidebar .logo .echo-1 {
-  top: 130px;
-  /* Adjusted to prevent stacking too closely */
-  font-size: .9rem;
-  color: rgba(255, 248, 240, 0.5);
-}
-
-/* Second Echo */
-.sidebar .logo .echo-2 {
-  top: 160px;
-  font-size: 1.2rem;
-  color: rgba(255, 248, 240, 0.3);
-}
-
-/* Third Echo */
-.sidebar .logo .echo-3 {
-  top: 190px;
-  font-size: 1.9rem;
-  color: rgba(255, 248, 240, 0.2);
-}
-
-/* Make echoes appear on hover */
-.sidebar .logo:hover .echo {
-  opacity: 1;
-  transform: translateX(-50%) translateY(15px);
-}
-
-/* Ensures sidebar content never overflows vertically */
-.sidebar .logo-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-height: 100%;
 }
 
 /* Move Navigation Below the Echoes */
@@ -191,11 +115,6 @@ main {
 }
 
 /* Prevents flickering when transitioning to links */
-.sidebar:hover nav ul {
-  pointer-events: auto;
-  /* Ensures hover effect remains active */
-}
-
 .sidebar nav ul li {
   margin: 20px 0;
   display: flex;
@@ -220,14 +139,9 @@ main {
 }
 
 /* Keep hover effect stable */
-.sidebar:hover nav ul li a {
-  pointer-events: auto;
-}
-
-/* Hover State */
 .sidebar nav ul li a:hover {
-  color: #011627;
-  background: rgba(255, 255, 255, 0.1);
+  color: #5E81AC;
+  background: rgba(255, 255, 255, 0.15);
   padding: 10px 15px;
   /* Expand clickable area */
   border-radius: 5px;
@@ -280,10 +194,9 @@ main {
 }
 
 .hero .highlight {
-  color: #FFD6AF;
-  /* Vanilla Coffee */
-  text-shadow: 2px 2px 8px #C49E85;
-  /* Darker Vanilla Coffee */
+  color: #5E81AC;
+  /* Updated color for a cleaner techy feel */
+  text-shadow: none;
 }
 
 .hero p {
@@ -309,48 +222,23 @@ main {
   border-radius: 10px;
 }
 
-/* Animated typing of Hero text -- Not sure how I want to incorporate this. 
-Commented out for now. */
-
-.typing-text::after {
-  content: "|";
-  display: inline-block;
-  animation: blink 0.7s infinite;
-  font-size: 20px;
-  padding-left: 9px;
-}
-
-@keyframes blink {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
-}
-
-
-
 /* CTA Button */
 .cta-button {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 24px;
-  background: transparent;
-  border: 2px solid #b89f9f;
-  color: #c19696;
+  background: #5E81AC;
+  color: #FFF;
+  border: none;
+  border-radius: 6px;
   font-size: 1.2rem;
   text-decoration: none;
   transition: all 0.3s;
 }
 
 .cta-button:hover {
-  background: #b89f9f;
-  border: 2px solid #1E1E24;
-  color: #3F403F;
+  background: #5E81AC;
+  color: #FFF;
 }
 
 /* Sections */
@@ -377,7 +265,8 @@ Commented out for now. */
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 1px;
-  max-width: 80%;
+  max-width: 100%;
+  justify-content: center;
 }
 
 .contact-section {
@@ -396,7 +285,7 @@ Commented out for now. */
   width: 80%;
   height: 100%;
   background: transparent;
-  /* Very subtle divider */
+  /* Removed subtle divider background */
   z-index: -1;
   border-radius: 10px;
 }
@@ -418,7 +307,7 @@ Commented out for now. */
 .project-card {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #1e1e24c0 0%, #1E1E24 100%);
+  background: #1E1E24;
   padding: 20px;
   border-radius: 10px;
   border: 2px solid transparent #c19696;
@@ -431,30 +320,10 @@ Commented out for now. */
   perspective: 1000px;
 }
 
-/* Creates a gradient when mousing over portfolio cards */
-.project-card::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  left: -2px;
-  right: -2px;
-  bottom: -2px;
-  background-color: #1E1E24;
-  filter: hue-rotate(-60deg);
-  z-index: -1;
-  border-radius: 12px;
-  filter: blur(15px);
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.project-card:hover::before {
-  opacity: 1;
-}
-
+/* Removes glow effect from .project-card:hover */
 .project-card:hover {
   transform: scale(1.05) rotateX(3deg) rotateY(3deg);
-  box-shadow: 0px 10px 25px rgba(193, 150, 150, 0.3);
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 /* Global link styles */
@@ -503,7 +372,6 @@ a:hover {
     padding: 0px 20px;
     align-items: center;
     display: flex;
-    align-items: center;
     flex-direction: row;
     /* Align items in a row */
     justify-content: space-between;
@@ -512,13 +380,6 @@ a:hover {
     /* Remove hover expansion effect */
     overflow: hidden;
     /* Ensure no unexpected layout shifts */
-  }
-
-  /* 🔹 Prevent Sidebar from Expanding on Hover */
-  .sidebar:hover {
-    min-height: 120px;
-    padding: 10px 20px;
-    transition: min-height 0.4s ease-out, padding 0.4s ease-out;
   }
 
   /* 🔹 Navigation */
@@ -563,8 +424,8 @@ a:hover {
 
   /* 🔹 Ensure Hover Doesn't Move Elements */
   .sidebar nav ul li a:hover {
-    color: #011627;
-    background: rgba(255, 255, 255, 0.1);
+    color: #5E81AC;
+    background: rgba(255, 255, 255, 0.15);
     padding: 10px 15px;
     /* Keep hover padding identical to default */
     border-radius: 5px;
@@ -583,26 +444,6 @@ a:hover {
     /* Remove animation on mobile */
     white-space: nowrap;
     /* Prevents unwanted text wrapping */
-  }
-
-  /* 🔹 Hide Echoes on Mobile */
-  .sidebar .logo .echo {
-    display: none;
-  }
-
-  .sidebar .logo:hover {
-    height: 50px;
-    /* Prevent any expansion */
-    transition: none;
-  }
-
-  /* 🔹 Ensure logo text is stable */
-  .sidebar .logo .full-name {
-    opacity: 1;
-    position: static;
-    transform: none;
-    font-size: 1.5rem;
-    /* Match logo size */
   }
 
   /* 🔹 Main Content Adjustments */
@@ -641,6 +482,7 @@ a:hover {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    justify-content: center;
   }
   
   .hero-content {
@@ -660,6 +502,8 @@ a:hover {
     font-size: 1rem;
     padding: 10px 20px;
   }
+
+  .
 
   /* 🔹 Portfolio Section */
   .portfolio-grid {
