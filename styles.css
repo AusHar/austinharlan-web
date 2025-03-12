@@ -328,7 +328,7 @@ main {
 
 /* Global link styles */
 a {
-  color: #C19696;
+  color: #F9A03F;
   /* Soft muted red */
   text-decoration: none;
   /* Removes underline */
@@ -336,7 +336,7 @@ a {
 }
 
 a:hover {
-  color: #FFD6AF;
+  color: #7189FF;
   /* Vanilla Coffee */
   text-decoration: underline;
   /* Adds underline on hover */
