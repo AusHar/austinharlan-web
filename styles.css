@@ -53,7 +53,7 @@ main {
   width: clamp(200px, 15%, 300px);
   /* Dynamically scales */
   height: 100vh;
-  background: #282C35;
+  background: #254D32;
   /* Sidebar Background */
   position: fixed;
   display: flex;
@@ -194,7 +194,7 @@ main {
 }
 
 .hero .highlight {
-  color: #5E81AC;
+  color: #3A7D44;
   /* Updated color for a cleaner techy feel */
   text-shadow: none;
 }
@@ -227,7 +227,7 @@ main {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 24px;
-  background: #5E81AC;
+  background: #3A7D44;
   color: #FFF;
   border: none;
   border-radius: 6px;
@@ -237,7 +237,7 @@ main {
 }
 
 .cta-button:hover {
-  background: #5E81AC;
+  background: #254D32;
   color: #FFF;
 }
 
@@ -328,7 +328,7 @@ main {
 
 /* Global link styles */
 a {
-  color: #C19696;
+  color: #69B578;
   /* Soft muted red */
   text-decoration: none;
   /* Removes underline */
