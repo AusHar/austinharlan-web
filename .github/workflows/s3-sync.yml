@@ -25,3 +25,7 @@ jobs:
 
       - name: Sync to S3
         run: aws s3 sync . s3://amazon-cloudfront-secure-static-site--s3bucketroot-gs8mq3etvr3h/ --exclude ".git/*" --exclude ".DS_Store" --exclude ".venv/*"
+
+      - name: Invalidate CloudFront Cache (Optional)
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.E2DB8AWQFRDFSB }} --paths "/*"
