@@ -83,6 +83,11 @@ main {
   /* Ensures space for animation */
   width: 100%;
   /* Prevents echoes from shifting outside */
+  transition: color 0.3s ease-in-out;
+}
+
+.sidebar .logo:hover {
+  color: #F9A03F;
 }
 
 /* First Sidebar "Austin Harlan" (Main Text) */
@@ -301,7 +306,7 @@ main {
   text-decoration-line: underline;
   padding-bottom: 10px;
   padding-top: 5px;
-  text-align: left;
+  text-align: center;
 }
 
 .project-card {
@@ -318,6 +323,10 @@ main {
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
   will-change: transform;
   perspective: 1000px;
+}
+
+.project-card {
+  text-align: center;
 }
 
 /* Removes glow effect from .project-card:hover */
@@ -503,7 +512,6 @@ a:hover {
     padding: 10px 20px;
   }
 
-  .
 
   /* 🔹 Portfolio Section */
   .portfolio-grid {
