@@ -2,13 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-
 /* General Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Lexend', sans-serif;
+}
+
+html,
+body {
+  background-color: #1E1E24;
+  overflow-x: hidden;
 }
 
 /* Dark Theme with White Text*/
@@ -21,6 +26,7 @@ body {
   height: 100%;
   flex-direction: column;
   min-height: 100vh;
+  min-width: 100vw;
   /* Ensures full height */
   overflow-x: hidden;
 }
@@ -53,30 +59,29 @@ main {
   /* Ensures it fills viewport minus header/footer */
 }
 
-#work-history {
-  min-height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+.work-history-section {
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
 /* Sidebar Navigation */
 .sidebar {
   width: clamp(200px, 15%, 300px);
-  /* Dynamically scales */
   height: 100vh;
   background: #282C35;
-  /* Sidebar Background */
   position: fixed;
+  top: 0;       /* Pin to top */
+  left: 0;      /* Pin to left */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  /* Ensure everything stays aligned properly */
   padding-top: 20px;
   overflow-x: hidden;
-  /* Only hide horizontal overflow */
 }
+
 
 /* Sidebar Logo */
 .sidebar .logo {
@@ -249,20 +254,22 @@ main {
   border: none;
   border-radius: 6px;
   font-size: 1.2rem;
-  text-decoration: none;
   transition: all 0.3s;
+  text-decoration: none;
 }
 
 .cta-button:hover {
-  background: #5E81AC;
+  background: #F9A03F;
   color: #FFF;
+  text-decoration: none;
 }
 
 /* Sections */
 /* Add spacing between sections */
 .about-section,
 .portfolio-section,
-.contact-section {
+.contact-section,
+.work-history-container {
   padding: 50px 20px;
   max-width: 100%;
   margin: 0 auto;
@@ -275,7 +282,8 @@ main {
 /* Only apply spacing to section titles, not project cards */
 .about-section>h2,
 .portfolio-section>h2,
-.contact-section>h2 {
+.contact-section>h2
+  {
   margin: 40px 0 20px;
   /* Adds spacing only to section headings */
   font-size: 2rem;
@@ -284,6 +292,18 @@ main {
   letter-spacing: 1px;
   max-width: 100%;
   justify-content: center;
+}
+
+.work-history-container>h2 {
+  margin: 40px 0 20px;
+  /* Adds spacing only to section headings */
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  max-width: 100%;
+  justify-content: center;
+  text-align: center;
 }
 
 .contact-section {
@@ -344,7 +364,7 @@ main {
 /* Removes glow effect from .project-card:hover */
 .project-card:hover {
   transform: scale(1.05) rotateX(3deg) rotateY(3deg);
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 5px 15px #F9A03F;
 }
 
 /* Global link styles */
@@ -378,13 +398,20 @@ a:hover {
 /* 🔹 Mobile Styling: Improves visibility and functionality for mobile */
 @media screen and (max-width: 768px) {
 
-
+  main {
+    /* Remove left margin & padding so content is truly centered */
+    margin-left: 0;
+    padding-left: 0;
+    /* Optionally center all content: */
+    margin: 0 auto;
+    text-align: center;
+  }
 
   /* 🔹 Sidebar Adjustments */
   .sidebar {
     width: 100%;
     /* Full width */
-    height: 80px;
+    height: 40px;
     /* Fixed height to prevent resizing */
     min-height: 80px;
     position: fixed;
@@ -401,6 +428,7 @@ a:hover {
     /* Remove hover expansion effect */
     overflow: hidden;
     /* Ensure no unexpected layout shifts */
+    z-index: 999;
   }
 
   /* 🔹 Navigation */
@@ -421,6 +449,8 @@ a:hover {
     padding: 0;
     margin: 0;
     justify-content: space-evenly;
+    height: 100%;
+    line-height: 1.2px;
   }
 
   .sidebar nav ul li {
@@ -467,19 +497,8 @@ a:hover {
     /* Prevents unwanted text wrapping */
   }
 
-  /* 🔹 Main Content Adjustments */
-  main {
-    margin-top: 80px;
-    /* Push content below fixed sidebar */
-    margin-left: 0;
-    /* Remove left margin */
-    padding: 20px;
-    /* Reduce padding for better spacing */
-    text-align: center;
-    /* Center everything */
-  }
-
   .content-container {
+    margin-top: 10%;
     flex-direction: column;
     text-align: center;
   }
