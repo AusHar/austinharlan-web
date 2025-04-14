@@ -7,7 +7,10 @@ function App() {
   // Scroll effect
   useEffect(() => {
     function handleScroll() {
-      document.body.classList.toggle("scrolled", window.scrollY > 100);
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = Math.min(scrollTop / docHeight, 1); // Clamp between 0 and 1
+      document.body.style.setProperty('--scroll-opacity', scrollPercent.toFixed(2));
     }
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -111,7 +114,6 @@ function App() {
               <a href="mailto:austinharlan@gmail.com">austinharlan@gmail.com</a>.
             </p>
           </section>
-
         </main>
       </div>
 

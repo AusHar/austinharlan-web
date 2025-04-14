@@ -92,7 +92,7 @@ export default function WorkHistory() {
                   className="mt-2 text-gray-700 text-center"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
+                  transition={{
                     duration: 0.4,
                     delay: .05,
                     type: "spring",

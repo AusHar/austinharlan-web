@@ -34,19 +34,21 @@ body {
 body::before {
   content: "";
   position: fixed;
+  width: 100vw;
+  height: 100vh;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, rgba(0, 0, 0, 0) 100%);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05), rgb(0, 0, 0));
+  opacity: var(--scroll-opacity, 0); /* Dynamic opacity */
+  transition: opacity 0.1s ease-out;
 }
 
 body.scrolled::before {
   opacity: 1;
 }
+
 
 /* Main Content */
 main {
@@ -279,6 +281,16 @@ main {
   max-width: 925px;
 }
 
+.contact-section {
+  margin-bottom: 70px;
+}
+
+.work-history-container,
+.contact-section {
+  position: relative;
+  z-index: 1;
+}
+
 /* Only apply spacing to section titles, not project cards */
 .about-section>h2,
 .portfolio-section>h2,
@@ -304,10 +316,6 @@ main {
   max-width: 100%;
   justify-content: center;
   text-align: center;
-}
-
-.contact-section {
-  margin-bottom: 70px;
 }
 
 /* both .portfolio-section and ::before are meant to act as a subtle divider provide some additional structure */
@@ -393,6 +401,7 @@ a:hover {
   position: fixed;
   bottom: 0;
   left: 0;
+  z-index: 100;
 }
 
 /* 🔹 Mobile Styling: Improves visibility and functionality for mobile */
