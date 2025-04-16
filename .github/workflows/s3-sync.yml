@@ -24,7 +24,7 @@ jobs:
           role-to-assume: arn:aws:iam::726086112472:role/GitHub_Actions_Role
       # install dependencies
       - name: Install Dependencies
-        run: npm ci
+        run: npm install
       # builds the website  
       - name: Build the Site
         run: npm run build
