@@ -15,7 +15,7 @@
     "radix-ui": "^1.1.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "tailwindscss": "^0.3.0",
+    "tailwindscss": "^3.4.1",
     "ui": "github:shadcn/ui"
   },
   "devDependencies": {
