@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "./ui/card.jsx";
 import { Button } from "./ui/button.jsx";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import metaLogo from "../assets/meta-logo.svg";
+import merckLogo from "../assets/merck-logo.webp";
+import mearsLogo from "../assets/mears-logo.png";
 
 // 1) Minimal sample data
 //    Adjust job details, logos, and descriptions as needed
@@ -10,26 +13,26 @@ const jobs = [
   {
     title: "Software Analyst",
     company: "Meta",
-    logo: "https://www.codinginterview.com/wp-content/uploads/2025/03/meta-logo.svg",
-    period: "2023 - Present",
+    logo: metaLogo,
+    period: "2022 - Present",
     description:
-      "Diagnose and triage platform bugs, debug PHP and JavaScript code, manage user permissions and configurations, and automate content review workflows. Develop large-scale SQL dashboards for cross-functional observability, lead knowledge-sharing sessions, and enhance platform stability.",
+      "Drive platform stability and efficiency for the Single Review Tool (SRT) by debugging complex PHP and JavaScript issues, triaging high-priority bugs, and managing user permissions and configurations. Develop and maintain scalable SQL dashboards that power cross-functional observability. Automate content review workflows and lead regular knowledge-sharing sessions to elevate team performance and operational smoothness.",
   },
   {
     title: "Application Support Engineer",
     company: "Merck Pharmaceuticals",
-    logo: "https://images.crunchbase.com/image/upload/c_pad,h_256,w_256,f_auto,q_auto:eco,dpr_1/v1484319228/r5dfop9wrdxrsbkflim9.png",
-    period: "2021 - 2023",
+    logo: merckLogo,
+    period: "2021 - 2022",
     description:
-      "Ensured game quality, automated test cases, and provided detailed debugging reports.",
+      "Ensured stable Windows 11 SCCM patching, automated test cases, and provided detailed debugging reports for a wide array of supported softwares.",
   },
   {
     title: "Senior IT Support",
     company: "Mears Group",
-    logo: "https://d1hbpr09pwz0sk.cloudfront.net/logo_url/mears-group-inc-3974b2a8",
+    logo: mearsLogo,
     period: "2019 - 2021",
     description:
-      "Performed deep analysis on software performance, identifying key optimizations for UI.",
+      "Hands and feet IT support for a large-scale Windows 10 organization, including hardware and software support, user training, and everything in between.",
   },
 ];
 
@@ -72,7 +75,7 @@ export default function WorkHistory() {
                 {job.company} | {job.period}
               </p>
 
-              {/* Expandable Description Button */}
+              {/* Expandable Details Button */}
               <Button
                 variant="ghost"
                 className="mt-2 flex items-center"
