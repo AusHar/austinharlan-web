@@ -4,7 +4,7 @@ import { Card, CardContent } from "./ui/card.jsx";
 import { Button } from "./ui/button.jsx";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import metaLogo from "../assets/meta-logo.svg";
-import merckLogo from "../assets/merck-logo.webp";
+import merckLogo from "../assets/merck-logo.png";
 import mearsLogo from "../assets/mears-logo.png";
 
 // 1) Minimal sample data
