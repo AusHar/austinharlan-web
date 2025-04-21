@@ -10,4 +10,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, 'src'),
     },
   },
+  build: {
+    assetsInlineLimit: 0, // Disable inlining of assets (disabling base64 encoding)
+  }
 });
