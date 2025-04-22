@@ -30,7 +30,7 @@ const jobs = [
     title: "Senior IT Support",
     company: "Mears Group",
     logo: mearsLogo,
-    period: "2019 - 2021",
+    period: "2017 - 2021",
     description:
       "Hands and feet IT support for a large-scale Windows 10 organization, including hardware and software support, user training, and everything in between.",
   },
