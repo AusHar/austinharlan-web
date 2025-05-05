@@ -1,10 +1,21 @@
-# Ignore environment files
+# Ignore sensitive environment files
 *.env
 rhacc.env
+data.pickle
 *.vscode
 
 # Ignore virtual environments
 venv/
+
+# build and distribution files that are auto-generated
+build/
+dist/
+
+# notes to self
+uploadnotes.txt
+
+# testing
+tests/app_tests.py
 
 # Logs
 logs
@@ -23,7 +34,16 @@ dist-ssr
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
-.idea
+.pypirc
+.idea/*
+.cache/v/cache/
+*.egg-info/
+*.egg
+*.py[cod]
+__pycache__/
+*.so
+*~
+[.]venv
 .DS_Store
 *.suo
 *.ntvs*

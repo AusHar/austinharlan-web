@@ -1,2 +1,0 @@
-export PATH="/path/to/pip:$PATH" /Users/aharlan/.zshrc
-export PATH="/opt/homebrew/bin/pip3" /Users/aharlan/.zshrc
