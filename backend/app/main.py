@@ -2,7 +2,8 @@
 import os
 import getpass
 from dotenv import load_dotenv
-import robin_stocks.robinhood as rh
+from robinhood.authentication import login, logout
+import robin_stocks.robinhood.profiles as profiles
 
 def main():
     # Load environment variables
@@ -21,7 +22,7 @@ def main():
 
     # Log in
     print("🔐 Logging into Robinhood...")
-    login_response = rh.login(username=username, password=password)
+    login_response = login(username=username, password=password)
 
     if 'access_token' not in login_response:
         print("❌ Login failed!")
@@ -31,7 +32,7 @@ def main():
 
     # Fetch account profile
     print("📄 Fetching account profile...")
-    profile = rh.profiles.load_account_profile()
+    profile = profiles.load_account_profile()
 
     if profile:
         print("👤 Account Profile:")
@@ -41,7 +42,7 @@ def main():
 
     # Log out
     print("🔓 Logging out...")
-    rh.logout()
+    logout()
     print("✅ Logged out successfully.")
 
 if __name__ == "__main__":
