@@ -12,22 +12,36 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      # checkout the code repo
+      # Checkout the code repo
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      # assume role
+      # Cache node modules to speed up builds by reusing frontend dependencies
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: frontend/node_modules
+          key: ${{ runner.os }}-node-${{ hashFiles('frontend/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      # Assume AWS IAM role for deployment permissions
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: us-east-1
           role-to-assume: arn:aws:iam::726086112472:role/GitHub_Actions_Role
-      # install dependencies
+
+      # Install frontend project's npm packages
       - name: Install Dependencies
         run: npm install
-      # builds the website  
+        working-directory: frontend
+
+      # Compile the Vite frontend
       - name: Build the Site
         run: npm run build
-      # sync to s3 bucket
+        working-directory: frontend
+
+      # Upload the built frontend to the AWS S3 bucket
       - name: Sync to S3
-        run: aws s3 sync dist/ s3://amazon-cloudfront-secure-static-site--s3bucketroot-gs8mq3etvr3h/ --exclude ".git/*" --exclude ".DS_Store" --exclude ".venv/*"
+        run: aws s3 sync frontend/dist/ s3://amazon-cloudfront-secure-static-site--s3bucketroot-gs8mq3etvr3h/ --exclude ".git/*" --exclude ".DS_Store" --exclude ".venv/*"
