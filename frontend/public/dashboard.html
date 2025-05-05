@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock Portfolio Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <h1>Stock Portfolio Dashboard</h1>
+    <canvas id="portfolioChart" width="400" height="200"></canvas>
+
+    <script>
+        async function loadPortfolioData() {
+            try {
+                // Fetch portfolio data from Flask backend
+                const response = await fetch('http://127.0.0.1:5000/api/portfolio');
+                const data = await response.json();
+
+                // Extract chart data
+                const labels = Object.keys(data.total_return);
+                const values = Object.values(data.total_return);
+
+                // Render the chart
+                const ctx = document.getElementById('portfolioChart').getContext('2d');
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Portfolio Returns',
+                            data: values,
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 2
+                        }]
+                    }
+                });
+            } catch (error) {
+                console.error('Error loading portfolio data:', error);
+            }
+        }
+
+        loadPortfolioData();
+    </script>
+</body>
+
+</html>

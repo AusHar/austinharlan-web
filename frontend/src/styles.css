@@ -1,0 +1,576 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lexend', sans-serif;
+}
+
+html,
+body {
+  background-color: #1E1E24;
+  overflow-x: hidden;
+}
+
+/* Dark Theme with White Text*/
+body {
+  background-color: #1E1E24;
+  /* Raisin Black */
+  color: #FFF8F0;
+  /* Floral White */
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100vw;
+  /* Ensures full height */
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05), rgb(0, 0, 0));
+  opacity: var(--scroll-opacity, 0); /* Dynamic opacity */
+  transition: opacity 0.1s ease-out;
+}
+
+body.scrolled::before {
+  opacity: 1;
+}
+
+
+/* Main Content */
+main {
+  margin-left: clamp(200px, 15%, 300px);
+  padding-left: 80px;
+  /* forces the footer to bottom regardless of content */
+  flex-grow: 1;
+  /* Ensures main content takes up remaining space */
+  min-height: calc(100vh - 50px);
+  /* Ensures it fills viewport minus header/footer */
+}
+
+.work-history-section {
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+/* Sidebar Navigation */
+.sidebar {
+  width: clamp(200px, 15%, 300px);
+  height: 100vh;
+  background: #282C35;
+  position: fixed;
+  top: 0;       /* Pin to top */
+  left: 0;      /* Pin to left */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+  overflow-x: hidden;
+}
+
+
+/* Sidebar Logo */
+.sidebar .logo {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #E0E0E0;
+  /* Text Color */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  min-height: 180px;
+  /* Ensures space for animation */
+  width: 100%;
+  /* Prevents echoes from shifting outside */
+  transition: color 0.3s ease-in-out;
+}
+
+.sidebar .logo:hover {
+  color: #F9A03F;
+}
+
+/* First Sidebar "Austin Harlan" (Main Text) */
+.sidebar .logo .full-name {
+  font-size: 2rem;
+  font-weight: bold;
+  opacity: 1;
+  color: #FF0022;
+  /* Red */
+  position: static;
+  transform: none;
+  transition: none;
+  z-index: 15;
+  white-space: nowrap;
+  /* Ensures it doesn't break */
+  width: 100%;
+  text-align: center;
+}
+
+/* Move Navigation Below the Echoes */
+.sidebar nav {
+  margin-top: 20px;
+  /* Push the nav completely below echoes */
+  transition: margin-top 0.8s ease-in-out;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* Prevents flickering when transitioning to links */
+.sidebar nav ul li {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Sidebar Links */
+.sidebar nav ul li a {
+  text-decoration: none;
+  color: #E6E8E6;
+  /* Light Gray */
+  font-size: 1.2rem;
+  position: relative;
+  z-index: 50;
+  display: inline-block;
+  padding: 10px 15px;
+  /* Ensure enough clickable area */
+  min-width: 120px;
+  /* Prevent shrinking when hovered */
+  transition: color 0.3s, background-color 0.3s ease-in-out;
+  text-align: center;
+}
+
+/* Keep hover effect stable */
+.sidebar nav ul li a:hover {
+  color: #5E81AC;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 10px 15px;
+  /* Expand clickable area */
+  border-radius: 5px;
+  /* Slightly rounded corners for better feel */
+}
+
+/* Social Links */
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: #CED0CE;
+  /* Muted Gray-Green */
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #9FB8AD;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Allows stacking on smaller screens */
+  gap: 40px;
+  padding: 50px 20px;
+  max-width: 100%;
+}
+/* Ensure the text content and image each take up a fair amount of space */
+.hero-content {
+  flex: 1;
+  min-width: 300px; /* Ensures it doesn't shrink too much */
+}
+
+.hero-content-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.hero .highlight {
+  color: #5E81AC;
+  /* Updated color for a cleaner techy feel */
+  text-shadow: none;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 10px;
+  color: #CED0CE;
+  /* Muted Gray-Green */
+}
+
+/* Center the image and constrain its width */
+.profile-photo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 300px; /* Prevents it from shrinking too much */
+}
+
+.profile-photo img {
+  max-width: 100%;
+  width: clamp(250px, 30vw, 400px); /* Scales with screen size */
+  height: auto;
+  border-radius: 10px;
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #5E81AC;
+  color: #FFF;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background: #F9A03F;
+  color: #FFF;
+  text-decoration: none;
+}
+
+/* Sections */
+/* Add spacing between sections */
+.about-section,
+.portfolio-section,
+.contact-section,
+.work-history-container {
+  padding: 50px 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.about-section-text{
+  max-width: 925px;
+}
+
+.contact-section {
+  margin-bottom: 70px;
+}
+
+.work-history-container,
+.contact-section {
+  position: relative;
+  z-index: 1;
+}
+
+/* Only apply spacing to section titles, not project cards */
+.about-section>h2,
+.portfolio-section>h2,
+.contact-section>h2
+  {
+  margin: 40px 0 20px;
+  /* Adds spacing only to section headings */
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  max-width: 100%;
+  justify-content: center;
+}
+
+.work-history-container>h2 {
+  margin: 40px 0 20px;
+  /* Adds spacing only to section headings */
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  max-width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+/* both .portfolio-section and ::before are meant to act as a subtle divider provide some additional structure */
+.portfolio-section {
+  position: relative;
+}
+
+.portfolio-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80%;
+  height: 100%;
+  background: transparent;
+  /* Removed subtle divider background */
+  z-index: -1;
+  border-radius: 10px;
+}
+
+.portfolio-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  gap: 20px;
+}
+
+.portfolio-section h4 {
+  text-decoration-line: underline;
+  padding-bottom: 10px;
+  padding-top: 5px;
+  text-align: center;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  background: #1E1E24;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid transparent #c19696;
+  text-align: left;
+  width: calc(50% - 20px);
+  max-width: 400px;
+  color: #E6E8E6;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+  will-change: transform;
+  perspective: 1000px;
+}
+
+.project-card {
+  text-align: center;
+}
+
+/* Removes glow effect from .project-card:hover */
+.project-card:hover {
+  transform: scale(1.05) rotateX(3deg) rotateY(3deg);
+  box-shadow: 0px 5px 15px #F9A03F;
+}
+
+/* Global link styles */
+a {
+  color: #F9A03F;
+  /* Soft muted red */
+  text-decoration: none;
+  /* Removes underline */
+  transition: color 0.3s ease-in-out;
+}
+
+a:hover {
+  color: #7189FF;
+  /* Vanilla Coffee */
+  text-decoration: underline;
+  /* Adds underline on hover */
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background: #000000;
+  color: #CED0CE;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+}
+
+/* 🔹 Mobile Styling: Improves visibility and functionality for mobile */
+@media screen and (max-width: 768px) {
+
+  main {
+    /* Remove left margin & padding so content is truly centered */
+    margin-left: 0;
+    padding-left: 0;
+    /* Optionally center all content: */
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  /* 🔹 Sidebar Adjustments */
+  .sidebar {
+    width: 100%;
+    /* Full width */
+    height: 40px;
+    /* Fixed height to prevent resizing */
+    min-height: 80px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 0px 20px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    /* Align items in a row */
+    justify-content: space-between;
+    /* Spread elements evenly */
+    transition: min-height 0.4s ease-out, padding 0.4s ease-out;
+    /* Remove hover expansion effect */
+    overflow: hidden;
+    /* Ensure no unexpected layout shifts */
+    z-index: 999;
+  }
+
+  /* 🔹 Navigation */
+  .sidebar nav {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* Align links to the right */
+    flex-grow: 1;
+  }
+
+  .sidebar nav ul {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* Space out links */
+    padding: 0;
+    margin: 0;
+    justify-content: space-evenly;
+    height: 100%;
+    line-height: 1.2px;
+  }
+
+  .sidebar nav ul li {
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar nav ul li a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    /* Ensures full height */
+    line-height: normal;
+    /* Fixes cut-off text issue */
+    padding: 10px 15px;
+    /* Standard clickable area */
+    font-size: 1rem;
+    transition: color 0.3s, background-color 0.3s ease-in-out;
+    /* Remove size-changing transitions */
+  }
+
+  /* 🔹 Ensure Hover Doesn't Move Elements */
+  .sidebar nav ul li a:hover {
+    color: #5E81AC;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 10px 15px;
+    /* Keep hover padding identical to default */
+    border-radius: 5px;
+    text-decoration: none;
+  }
+
+  /* 🔹 Fix Logo Alignment */
+  .sidebar .logo {
+    height: 100%;
+    /* Prevent resizing */
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: none;
+    /* Remove animation on mobile */
+    white-space: nowrap;
+    /* Prevents unwanted text wrapping */
+  }
+
+  .content-container {
+    margin-top: 10%;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .profile-photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .profile-photo img {
+    max-width: 80%; /* Keeps it from being too large */
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .hero-content {
+    max-width: 100%; /* Prevents the text from being too stretched */
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    /* Reduce heading size for mobile */
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+
+  /* 🔹 Portfolio Section */
+  .portfolio-grid {
+    flex-direction: column;
+    /* Stack items */
+    align-items: center;
+  }
+
+  .project-card {
+    width: 90%;
+    max-width: 400px;
+    /* Keep a readable width */
+  }
+
+  /* 🔹 Footer Adjustments */
+  .footer {
+    position: relative;
+    /* Prevent overlap */
+    width: 100%;
+    padding: 15px;
+  }
+}
