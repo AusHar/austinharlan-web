@@ -1,6 +1,6 @@
-# main.py
-
+# This script logs into Robinhood, fetches the account profile, and logs out.
 import os
+import getpass
 from dotenv import load_dotenv
 import robin_stocks.robinhood as rh
 
@@ -8,31 +8,40 @@ def main():
     # Load environment variables
     load_dotenv()
 
-    # Pull credentials
     username = os.getenv('ROBINHOOD_USERNAME')
     password = os.getenv('ROBINHOOD_PASSWORD')
 
-    if not username or not password:
-        print("ERROR: Missing ROBINHOOD_USERNAME or ROBINHOOD_PASSWORD in .env file.")
+    if not username:
+        print("ERROR: Missing ROBINHOOD_USERNAME in .env file.")
         return
+
+    if not password:
+        # Prompt for password securely if not found in env
+        password = getpass.getpass("Enter your Robinhood password: ")
 
     # Log in
-    print("Logging into Robinhood...")
-    login = rh.login(username=username, password=password)
+    print("🔐 Logging into Robinhood...")
+    login_response = rh.login(username=username, password=password)
 
-    if 'access_token' not in login:
-        print("ERROR: Login failed!")
+    if 'access_token' not in login_response:
+        print("❌ Login failed!")
         return
+
     print("✅ Successfully logged in!")
 
-    # Pull account profile
-    print("Fetching account profile...")
+    # Fetch account profile
+    print("📄 Fetching account profile...")
     profile = rh.profiles.load_account_profile()
-    print("Account Info:", profile)
+
+    if profile:
+        print("👤 Account Profile:")
+        print(profile)
+    else:
+        print("⚠️ Failed to fetch account profile.")
 
     # Log out
-    print("Logging out...")
-    r.logout()
+    print("🔓 Logging out...")
+    rh.logout()
     print("✅ Logged out successfully.")
 
 if __name__ == "__main__":
