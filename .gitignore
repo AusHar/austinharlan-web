@@ -1,8 +1,10 @@
 # Ignore sensitive environment files
 *.env
-rhacc.env
 data.pickle
 *.vscode
+
+# Allow examples/templates to be tracked
+!.env.example
 
 # Ignore virtual environments
 venv/
