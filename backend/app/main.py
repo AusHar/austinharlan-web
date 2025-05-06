@@ -5,19 +5,20 @@ from dotenv import load_dotenv
 from robinhood.authentication import login, logout
 import robin_stocks.robinhood.profiles as profiles
 
+
 def main():
     # Load environment variables
     load_dotenv()
 
+    # Only require username to be present
     username = os.getenv('ROBINHOOD_USERNAME')
     password = os.getenv('ROBINHOOD_PASSWORD')
 
     if not username:
-        print("ERROR: Missing ROBINHOOD_USERNAME in .env file.")
-        return
+        raise EnvironmentError("ERROR: Missing ROBINHOOD_USERNAME in .env file.")
 
+    # Prompt for password securely if missing or blank
     if not password:
-        # Prompt for password securely if not found in env
         password = getpass.getpass("Enter your Robinhood password: ")
 
     # Log in
