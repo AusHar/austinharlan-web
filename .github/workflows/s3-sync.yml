@@ -2,7 +2,7 @@ name: AWS-GitHub-Sync
 
 on:
   push:
-    branches: ["js-proto-one"]
+    branches: ["main"]
 
 permissions:
   id-token: write
