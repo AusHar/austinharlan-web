@@ -14,6 +14,7 @@ html,
 body {
   background-color: #1E1E24;
   overflow-x: hidden;
+  scroll-behavior: smooth;
 }
 
 /* Dark Theme with White Text*/
@@ -282,7 +283,64 @@ main {
 }
 
 .contact-section {
-  margin-bottom: 70px;
+  margin-bottom: 20px;
+}
+
+/* Skills Section */
+.skills-section {
+  padding: 50px 20px;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.skills-section h2 {
+  margin: 40px 0 20px;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  margin-top: 20px;
+}
+
+.skill-category {
+  flex: 1;
+  min-width: 250px;
+  max-width: 350px;
+}
+
+.skill-category h3 {
+  font-size: 1.2rem;
+  color: #5E81AC;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-tag {
+  background: #282C35;
+  color: #E6E8E6;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  border: 1px solid #3d4150;
+  transition: all 0.3s ease;
+}
+
+.skill-tag:hover {
+  background: #5E81AC;
+  border-color: #5E81AC;
+  transform: translateY(-2px);
 }
 
 .work-history-container,
@@ -355,7 +413,7 @@ main {
   background: #1E1E24;
   padding: 20px;
   border-radius: 10px;
-  border: 2px solid transparent #c19696;
+  border: 2px solid #c19696;
   text-align: left;
   width: calc(50% - 20px);
   max-width: 400px;
@@ -363,10 +421,6 @@ main {
   transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
   will-change: transform;
   perspective: 1000px;
-}
-
-.project-card {
-  text-align: center;
 }
 
 /* Removes glow effect from .project-card:hover */
@@ -394,14 +448,11 @@ a:hover {
 /* Footer */
 .footer {
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   background: #000000;
   color: #CED0CE;
   width: 100%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 100;
+  margin-top: auto;
 }
 
 /* 🔹 Mobile Styling: Improves visibility and functionality for mobile */
@@ -420,9 +471,9 @@ a:hover {
   .sidebar {
     width: 100%;
     /* Full width */
-    height: 40px;
+    height: 70px;
     /* Fixed height to prevent resizing */
-    min-height: 80px;
+    min-height: 70px;
     position: fixed;
     top: 0;
     left: 0;
@@ -507,7 +558,7 @@ a:hover {
   }
 
   .content-container {
-    margin-top: 10%;
+    margin-top: 90px;
     flex-direction: column;
     text-align: center;
   }

@@ -60,25 +60,25 @@ export default function WorkHistory() {
           <div className="absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-blue-500 rounded-full z-20" />
 
           {/* 4) The card for each job */}
-          <Card className="mt-8 w-96 bg-white border border-gray-200 rounded-lg p-4 shadow-lg">
+          <Card className="mt-8 w-96 bg-[#282C35] border border-[#3d4150] rounded-lg p-4 shadow-lg">
             <CardContent className="flex flex-col items-center text-center">
               {/* Company Logo */}
               <img
                 src={job.logo}
                 alt={job.company}
-                className="w-16 h-16 mb-2 rounded-full shadow-md"
+                className="w-16 h-16 mb-2 rounded-full shadow-md bg-white p-1"
               />
 
               {/* Job Title & Company */}
-              <h3 className="text-lg font-semibold text-gray-900">{job.title}</h3>
-              <p className="text-gray-500">
+              <h3 className="text-lg font-semibold text-[#FFF8F0]">{job.title}</h3>
+              <p className="text-[#CED0CE]">
                 {job.company} | {job.period}
               </p>
 
               {/* Expandable Details Button */}
               <Button
                 variant="ghost"
-                className="mt-2 flex items-center"
+                className="mt-2 flex items-center text-[#5E81AC] hover:text-[#F9A03F] hover:bg-[#3d4150]"
                 onClick={() => setExpanded(expanded === index ? null : index)}
               >
                 {expanded === index ? "Hide Details" : "View Details"}
@@ -92,7 +92,7 @@ export default function WorkHistory() {
               {/* Conditionally render the description with a simple animation */}
               {expanded === index && (
                 <motion.p
-                  className="mt-2 text-gray-700 text-center"
+                  className="mt-2 text-[#E6E8E6] text-center"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
