@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
 import WorkHistory from "./components/WorkHistory.jsx";
 import "./styles.css";
 
@@ -23,16 +22,17 @@ function App() {
         <div className="logo">
           <span className="main-text">AH</span>
         </div>
-        <nav className="navbar">
+        <nav className="navbar" aria-label="Main navigation">
           <ul>
-            <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="https://www.linkedin.com/in/austinharlan">LinkedIn</a></li>
+            <li><a href="#about" aria-label="About section">About</a></li>
+            <li><a href="#skills" aria-label="Skills section">Skills</a></li>
+            <li><a href="#portfolio" aria-label="Portfolio section">Portfolio</a></li>
+            <li><a href="#work-history-container" aria-label="Work history section">Experience</a></li>
+            <li><a href="#contact" aria-label="Contact section">Contact</a></li>
           </ul>
         </nav>
         <div className="social-links">
-          <a href="https://www.linkedin.com/in/austinharlan/" title="LinkedIn Profile"><i className="fab fa-linkedin"></i></a>
+          <a href="https://www.linkedin.com/in/austinharlan/" title="LinkedIn Profile" aria-label="Visit LinkedIn profile"><i className="fab fa-linkedin"></i></a>
         </div>
       </aside>
 
@@ -44,9 +44,9 @@ function App() {
               <div className="hero-content">
                 <h1>
                   Hi, I'm <span className="highlight">Austin Harlan</span>. <br />
-                  I like to build things.
+                  I architect scalable systems.
                 </h1>
-                <p>Software Analyst / Cloud Developer</p>
+                <p>Software Analyst | Cloud Developer | Systems Engineer</p>
                 <a href="https://www.linkedin.com/in/austinharlan" className="cta-button">
                   Contact me!
                 </a>
@@ -62,13 +62,59 @@ function App() {
             <h2>About Me</h2>
             <div className="about-section-text">
               <p>
-                Hey, I’m Austin Harlan—a software engineer passionate about equities trading and
-                building scalable systems in diverse environments.<br /><br />
+                I'm Austin Harlan—a software analyst passionate about building reliable,
+                scalable systems and continuously improving development processes.<br /><br />
                 With 7+ years of IT and cloud expertise at Merck &amp; Co., Cognizant, Mears Group,
-                and now Meta in Austin, TX, I’m currently completing my B.S. in Software Engineering
-                at WGU. Life is good.<br /><br />
-                What's our next project?
+                and now Meta in Austin, TX, I specialize in platform stability, automation,
+                and cross-functional observability solutions.<br /><br />
+                Currently completing my B.S. in Software Engineering at WGU, I'm always looking
+                for opportunities to solve complex technical challenges.
               </p>
+            </div>
+          </section>
+
+          {/* Skills Section */}
+          <section id="skills" className="skills-section">
+            <h2>Skills</h2>
+            <div className="skills-grid">
+              <div className="skill-category">
+                <h3>Languages</h3>
+                <div className="skill-tags">
+                  <span className="skill-tag">Python</span>
+                  <span className="skill-tag">JavaScript</span>
+                  <span className="skill-tag">PHP</span>
+                  <span className="skill-tag">SQL</span>
+                  <span className="skill-tag">Bash</span>
+                </div>
+              </div>
+              <div className="skill-category">
+                <h3>Cloud & Infrastructure</h3>
+                <div className="skill-tags">
+                  <span className="skill-tag">AWS</span>
+                  <span className="skill-tag">S3</span>
+                  <span className="skill-tag">CI/CD</span>
+                  <span className="skill-tag">SCCM</span>
+                  <span className="skill-tag">Windows Server</span>
+                </div>
+              </div>
+              <div className="skill-category">
+                <h3>Tools & Frameworks</h3>
+                <div className="skill-tags">
+                  <span className="skill-tag">React</span>
+                  <span className="skill-tag">Git</span>
+                  <span className="skill-tag">REST APIs</span>
+                  <span className="skill-tag">Observability Dashboards</span>
+                </div>
+              </div>
+              <div className="skill-category">
+                <h3>Methodologies</h3>
+                <div className="skill-tags">
+                  <span className="skill-tag">Agile</span>
+                  <span className="skill-tag">Debugging</span>
+                  <span className="skill-tag">Automation</span>
+                  <span className="skill-tag">Technical Documentation</span>
+                </div>
+              </div>
             </div>
           </section>
 
@@ -101,9 +147,7 @@ function App() {
             <h2>Work History</h2>
           </section>
           <section id="work-history" className="work-history-section">
-            <AnimatePresence>
-              <WorkHistory />
-            </AnimatePresence>
+            <WorkHistory />
           </section>
 
           {/* Contact */}
@@ -119,7 +163,7 @@ function App() {
 
       {/* Footer */}
       <footer className="footer">
-        <p>&copy; 2025 Austin Harlan. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Austin Harlan. All rights reserved.</p>
       </footer>
     </>
   );
