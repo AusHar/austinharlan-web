@@ -69,6 +69,29 @@ main {
     align-items: center;
   }
 
+/* Work History Card Styling - Override shadcn/ui defaults */
+.work-history-section [class*="card"] {
+  background-color: #282C35 !important;
+  border-color: #3d4150 !important;
+}
+
+.work-history-section [class*="card"] h3 {
+  color: #FFF8F0 !important;
+}
+
+.work-history-section [class*="card"] p {
+  color: #CED0CE !important;
+}
+
+.work-history-section [class*="card"] button {
+  color: #5E81AC !important;
+}
+
+.work-history-section [class*="card"] button:hover {
+  color: #F9A03F !important;
+  background-color: #3d4150 !important;
+}
+
 /* Sidebar Navigation */
 .sidebar {
   width: clamp(200px, 15%, 300px);
