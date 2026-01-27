@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "@/lib/utils";
 
 const Card = ({ className, ...props }) => (
-  <div className={cn("rounded-lg shadow-md bg-white p-4", className)} {...props} />
+  <div className={cn("rounded-lg shadow-md p-4", className)} {...props} />
 );
 
 const CardContent = ({ className, ...props }) => (
